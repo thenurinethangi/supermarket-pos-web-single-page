@@ -1,14 +1,19 @@
 import {customerDB,itemDB,orderDB} from "../db/db.js"
 
-let customersCount = customerDB.length;
-let itemsCount = itemDB.length;
-let ordersCount = orderDB.length;
+export function setStatics() {
 
-let boxOne = $('#box-one>.box-calculations');
-boxOne[0].innerHTML = customersCount;
+    let customersCount = customerDB.length;
+    let itemsCount = itemDB.length;
+    let ordersCount = orderDB.length;
 
-let boxTwo = $('#box-two>.box-calculations');
-boxTwo[0].innerHTML = itemsCount;
+    let boxOne = $('#box-one>.box-calculations');
+    boxOne[0].innerHTML = customersCount;
 
-let boxThree = $('#box-three>.box-calculations');
-boxThree[0].innerHTML = ordersCount;
+    let boxTwo = $('#box-two>.box-calculations');
+    boxTwo[0].innerHTML = itemsCount;
+
+    let boxThree = $('#box-three>.box-calculations');
+    boxThree[0].innerHTML = ordersCount;
+}
+
+setStatics();
