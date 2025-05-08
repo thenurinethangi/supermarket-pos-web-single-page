@@ -164,7 +164,7 @@ body {
     font-weight: 400;
 }
 
-.add-new-btn{
+#item-form-add-btn{
 
     border: none;
     background-color: #ffcc00;
@@ -173,10 +173,10 @@ body {
     box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
 }
 
-.clear-btn{
+#item-form-clear{
 
     border: none;
-    background-color: #8D6E63;
+    background-color: #A1887F;
     border-radius: 5px;
     padding: 7px 15px;
     box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
@@ -214,12 +214,51 @@ body {
     font-weight: 400;
 }
 
+#item-edit-btn{
+
+    border: none;
+    background-color: #2196F3;
+    border-radius: 5px;
+    padding: 7px 16px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+}
+
+#item-edit-cancel-btn{
+
+    border: none;
+    background-color: #546E7A;
+    border-radius: 5px;
+    padding: 7px 14px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+    transform: translateX(2px);
+}
+
+
 #delete-item-modal-header{
 
     background-color: #EF5350;
     color: #FFFFFF;
 }
 
+#delete-item-btn{
+
+    border: none;
+    background-color: #EF5350;
+    border-radius: 5px;
+    padding: 7px 15px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+    color: #FFFFFF;
+}
+
+#cancel-item-delete{
+
+    border: none;
+    background-color: #546E7A;
+    border-radius: 5px;
+    padding: 7px 15px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+    transform: translateX(2px);
+}
 
 #item-section-title{
 

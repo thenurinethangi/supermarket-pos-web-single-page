@@ -55,7 +55,7 @@ function generateNewItemId() {
 
     let itemId = $('#item-id');
 
-    if(itemDB.length>=0){
+    if(itemDB.length<=0){
         itemId.val('I-00001');
         return;
     }
