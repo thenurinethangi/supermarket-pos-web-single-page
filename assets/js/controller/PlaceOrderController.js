@@ -2,6 +2,7 @@ import {customerDB,itemDB,orderDB} from "../db/db.js"
 import OrderModel from "../model/OrderModel.js"
 import CartModel from "../model/CartModel.js"
 import {loadOrderTable} from "./OrderController.js"
+import {loadItemTable} from "./ItemController.js"
 import {setStatics} from "./HomeController.js"
 
 
@@ -456,6 +457,20 @@ placeOrderBtn.addEventListener('click',async function () {
     }
     let cash = cashField.value;
 
+    let balance = $('#balance')[0];
+    balance = balance.value;
+    balance = Number(balance);
+
+    if(balance<0){
+        Swal.fire({
+            title: 'Warning!',
+            text: 'The cash amount entered is insufficient to place the order',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        });
+        return;
+    }
+
     let spinner = $('.spinner-border-sm')[0];
     spinner.style.display = 'inline-block';
     await sleep(2000);
@@ -470,6 +485,21 @@ placeOrderBtn.addEventListener('click',async function () {
     let itemCount = 0;
     for (let i = 0; i < cart.length; i++) {
         itemCount+=Number(cart[i].qty);
+    }
+
+    for (let i = 0; i < cart.length; i++) {
+        let itemId = cart[i].itemId;
+
+        for (let j = 0; j < itemDB.length; j++) {
+            let id = itemDB[j].id;
+
+            if(id==itemId){
+                let qty = Number(itemDB[j].quntity);
+                qty-=Number(cart[i].qty);
+                itemDB[j].quntity = qty;
+                break;
+            }
+        }
     }
 
     let finalPriceTag = $('.final-price')[0];
@@ -492,6 +522,7 @@ placeOrderBtn.addEventListener('click',async function () {
     })
     clean();
     loadOrderTable();
+    loadItemTable();
     setStatics();
 
 });

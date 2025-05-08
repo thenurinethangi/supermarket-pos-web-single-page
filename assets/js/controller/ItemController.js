@@ -5,7 +5,7 @@ import {setStatics} from "./HomeController.js"
 
 
 // load item table
-function loadItemTable() {
+export function loadItemTable() {
 
     let itemTbl = $('#item-table-body');
 

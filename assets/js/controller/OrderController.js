@@ -50,7 +50,6 @@ export function loadOrderTable() {
 
 
 //view order deatils icon
-var selectedCustomerIdTodelete = null;
 $(document).on('click', '.view-order-icon', function () {
 
     let parentRow = $(this).closest('tr');
@@ -98,6 +97,87 @@ $(document).on('click', '.view-order-icon', function () {
 
     let itemDetailsTextArea = $('#itemDetails')[0];
     itemDetailsTextArea.value = itemDeatils;
+});
+
+
+
+// View order details icon click handler
+$(document).on('click', '.view-order-icon', function () {
+    let parentRow = $(this).closest('tr');
+    let childrens = parentRow[0].childNodes;
+
+
+    let orderDetail = "Order ID:  " + childrens[1].innerHTML + "\n" +
+        "Customer ID:  " + childrens[3].innerHTML + "\n" +
+        "Date:  " + childrens[5].innerHTML + "\n" +
+        "Item Count:  " + childrens[7].innerHTML + "\n" +
+        "Total:  Rs " + childrens[9].innerHTML;
+
+    let orderDetailsTextArea = $('#order-details')[0];
+    orderDetailsTextArea.value = orderDetail;
+
+    let order = null;
+    for (let i = 0; i < orderDB.length; i++) {
+        let id = orderDB[i].orderId;
+        if (childrens[1].innerHTML == id) {
+            order = orderDB[i];
+            break;
+        }
+    }
+
+    let itemDetails = "";
+    if (order != null) {
+        for (let i = 0; i < order.itemList.length; i++) {
+            let itemId = order.itemList[i];
+            for (let j = 0; j < itemDB.length; j++) {
+                let iId = itemDB[j].id;
+                if (iId == itemId) {
+                    itemDetails += "Item #" + (i + 1) + ":\n";
+                    itemDetails += "  ID: " + itemDB[j].id + "\n";
+                    itemDetails += "  Description: " + itemDB[j].description + "\n";
+                    itemDetails += "  Price: Rs " + itemDB[j].price + "\n\n";
+                    break;
+                }
+            }
+        }
+    }
+
+    let itemDetailsTextArea = $('#itemDetails')[0];
+    itemDetailsTextArea.value = itemDetails.trim();
+
+    $('#staticBackdropOrder').modal('show');
+});
+
+
+
+// Print button click handler
+$(document).on('click', '#print-order-details', function() {
+
+    const originalBackdrop = $('#staticBackdropOrder').data('bs-backdrop');
+    $('#staticBackdropOrder').data('bs-backdrop', 'static');
+
+    $('.modal-backdrop').addClass('d-none');
+
+    window.print();
+
+    $('.modal-backdrop').removeClass('d-none');
+
+    $('#staticBackdropOrder').data('bs-backdrop', originalBackdrop);
+});
+
+
+
+// Adjust textarea height based on content
+function adjustTextareaHeight(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = (textarea.scrollHeight) + 'px';
+}
+
+
+// Adjust textarea heights when modal is shown
+$('#staticBackdropOrder').on('shown.bs.modal', function () {
+    adjustTextareaHeight(document.getElementById('order-details'));
+    adjustTextareaHeight(document.getElementById('itemDetails'));
 });
 
 
