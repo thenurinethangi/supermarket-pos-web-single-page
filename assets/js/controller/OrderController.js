@@ -54,7 +54,7 @@ $(document).on('click', '.view-order-icon', function () {
 
     let parentRow = $(this).closest('tr');
     let childrens = parentRow[0].childNodes;
-    console.log(childrens);
+    // console.log(childrens);
 
     let orderDetail = "Order ID: "+childrens[1].innerHTML+"\n"+
         "Customer ID: "+childrens[3].innerHTML+"\n"+
@@ -82,7 +82,7 @@ $(document).on('click', '.view-order-icon', function () {
 
         for (let i = 0; i < order.itemList.length; i++) {
             let itemId = order.itemList[i];
-            console.log(itemId);
+            // console.log(itemId);
 
            for (let j = 0; j < itemDB.length; j++) {
                 let iId = itemDB[j].id;
@@ -312,7 +312,7 @@ orderSearchBar.addEventListener('keydown',(event)=> {
 
     let inputText = orderSearchBar.value;
     inputText = inputText.toLowerCase();
-    console.log(inputText);
+    // console.log(inputText);
 
     const orderIdregex = /^ord-\d{6}$/i;
     let orderIdValidation = orderIdregex.test(inputText);

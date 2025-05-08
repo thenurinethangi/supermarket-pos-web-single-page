@@ -89,7 +89,7 @@ customerSelect.addEventListener('change',function () {
 
     let id = this.value;
     let customerDetailsTextArea = $('.customer-details')[0];
-    console.log(id);
+    // console.log(id);
 
     for (let i = 0; i < customerDB.length; i++) {
         let customerId = customerDB[i].id;
