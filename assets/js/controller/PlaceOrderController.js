@@ -2,6 +2,8 @@ import {customerDB,itemDB,orderDB} from "../db/db.js"
 import OrderModel from "../model/OrderModel.js"
 import CartModel from "../model/CartModel.js"
 import {loadOrderTable} from "./OrderController.js"
+import {setStatics} from "./HomeController.js"
+
 
 
 // generate new order id
@@ -9,7 +11,7 @@ export function generateNewOrderId() {
 
     let orderID = $('#orderID');
 
-    if(orderDB.length>=0){
+    if(orderDB.length<=0){
         orderID.val('ORD-000001');
         return;
     }
@@ -308,6 +310,13 @@ $(document).on('click', '.cart-item-delete-icon', function () {
     }
 
     loadCartTable();
+    Swal.fire({
+        title: 'Removed From Cart!',
+        text: 'Removed Item ID: '+itemId+", from cart",
+        icon: 'success',
+        timer: 1200,
+        showConfirmButton: false
+    });
 });
 
 
@@ -345,11 +354,12 @@ editCartItemBtn.addEventListener('click',function () {
             cart[i].qty = Number(qty);
             cart[i].total = Number(cart[i].price)*cart[i].qty;
             Swal.fire({
-                title: 'Sucess!',
+                title: 'Updated The Cart!',
                 text: 'Successfully updated the item count in the cart for Item ID: '+itemId,
                 icon: 'success',
-                confirmButtonText: 'Ok'
-            })
+                timer: 1500,
+                showConfirmButton: false
+            });
             break;
         }
     }
@@ -482,6 +492,7 @@ placeOrderBtn.addEventListener('click',async function () {
     })
     clean();
     loadOrderTable();
+    setStatics();
 
 });
 

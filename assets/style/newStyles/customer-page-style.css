@@ -867,6 +867,10 @@ footer {
         width: 100%;
     }
 
+    .search-field > input:focus{
+        width: 100%;
+    }
+
     .table-container.scrollable::after {
         content: '→ Scroll to view more →';
         display: block;

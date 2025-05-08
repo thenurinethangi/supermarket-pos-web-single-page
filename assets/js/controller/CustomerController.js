@@ -1,6 +1,7 @@
 import {customerDB,itemDB,orderDB} from "../db/db.js"
 import CustomerModel from "../model/CustomerModel.js"
 import {generateNewOrderId,setCustomersIds,setCustomersDetails,setItemIds,setItemsDetails} from "./PlaceOrderController.js"
+import {setStatics} from "./HomeController.js"
 
 // load customer table
 function loadCustomerTable() {
@@ -55,6 +56,8 @@ function loadCustomerTable() {
     setCustomersDetails();
     setItemIds();
     setItemsDetails();
+
+    setStatics();
 }
 
 

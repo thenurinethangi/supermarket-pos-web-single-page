@@ -249,6 +249,7 @@ orderSearchBar.addEventListener('keydown',(event)=> {
     const totalRegex = /^\d+\.\d{2}$/;
     let totalValidation = totalRegex.test(inputText);
 
+
     if(!orderIdValidation && !customerIdValidation && !dateValidation && !qtyValidation && !totalValidation){
         return;
     }
@@ -422,11 +423,12 @@ orderSearchBar.addEventListener('keydown',(event)=> {
         for (let i = 0; i < orderDB.length; i++) {
             let qty = orderDB[i].itemCount;
 
-            if(qty===inputText){
+            if(qty==inputText){
                 order.push(orderDB[i]);
             }
         }
 
+        console.log(order);
         if(order.length!=0) {
 
             let orderTbl = $('#order-table-body');
