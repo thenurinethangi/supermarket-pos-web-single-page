@@ -4,7 +4,7 @@ import {generateNewOrderId,setCustomersIds,setCustomersDetails,setItemIds,setIte
 import {setStatics} from "./HomeController.js"
 
 // load customer table
-function loadCustomerTable() {
+export function loadCustomerTable() {
 
     let customerTbl = $('#customer-table-body');
     let customerTblRows = $('#customer-table-body>tr');

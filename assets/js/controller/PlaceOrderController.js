@@ -4,7 +4,7 @@ import CartModel from "../model/CartModel.js"
 import {loadOrderTable} from "./OrderController.js"
 import {loadItemTable} from "./ItemController.js"
 import {setStatics} from "./HomeController.js"
-
+import {loadCustomerTable} from "./CustomerController.js"
 
 
 // generate new order id
@@ -225,6 +225,8 @@ addCardBtn.addEventListener('click',function () {
                 timer: 1500,
                 showConfirmButton: false
             });
+            let qtySelect = $('#selectQty')[0];
+            qtySelect.value = 1;
             return;
         }
     }
@@ -240,7 +242,8 @@ addCardBtn.addEventListener('click',function () {
         timer: 1500,
         showConfirmButton: false
     });
-
+    let quantitySelect = $('#selectQty')[0];
+    quantitySelect.value = 1;
 });
 
 
@@ -523,6 +526,7 @@ placeOrderBtn.addEventListener('click',async function () {
     clean();
     loadOrderTable();
     loadItemTable();
+    loadCustomerTable();
     setStatics();
 
 });
