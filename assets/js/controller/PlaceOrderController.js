@@ -10,6 +10,11 @@ function generateNewOrderId() {
 
     let orderID = $('#orderID');
 
+    if(orderDB.length>=0){
+        orderID.val('ORD-000001');
+        return;
+    }
+
     let lastOrderId = orderDB[orderDB.length-1].orderId;
     let numberPart = lastOrderId.split("-")[1];
     numberPart = Number(numberPart)+1;

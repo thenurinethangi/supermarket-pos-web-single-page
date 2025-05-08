@@ -57,6 +57,11 @@ function generateNewCustomerId() {
 
     let customerId = $('#customer-id');
 
+    if(customerDB.length>=0){
+        customerId.val('C-000001');
+        return;
+    }
+
     let lastCustomerId = customerDB[customerDB.length-1].id;
     let numberPart = lastCustomerId.split("-")[1];
     numberPart = Number(numberPart)+1;
