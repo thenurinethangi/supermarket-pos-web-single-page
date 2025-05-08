@@ -101,6 +101,7 @@ $(document).on('click', '.view-order-icon', function () {
 
 
 
+
 // View order details icon click handler
 $(document).on('click', '.view-order-icon', function () {
     let parentRow = $(this).closest('tr');
