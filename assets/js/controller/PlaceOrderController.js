@@ -1,12 +1,11 @@
 import {customerDB,itemDB,orderDB} from "../db/db.js"
-import CustomerModel from "../model/CustomerModel.js"
 import OrderModel from "../model/OrderModel.js"
-import ItemModel from "../model/ItemModel.js"
 import CartModel from "../model/CartModel.js"
+import {loadOrderTable} from "./OrderController.js"
 
 
 // generate new order id
-function generateNewOrderId() {
+export function generateNewOrderId() {
 
     let orderID = $('#orderID');
 
@@ -38,7 +37,7 @@ function setTodayDate() {
 
 
 //set customers ids
-function setCustomersIds() {
+export function setCustomersIds() {
 
     let customerSelect = $('#customerSelect');
     customerSelect.empty();
@@ -53,7 +52,7 @@ function setCustomersIds() {
 
 
 //set customer details by selected id
-function setCustomersDetails() {
+export function setCustomersDetails() {
 
     let customerSelect = $('#customerSelect');
     let customerDetailsTextArea = $('.customer-details')[0];
@@ -110,7 +109,7 @@ customerSelect.addEventListener('change',function () {
 
 
 //set item ids
-function setItemIds() {
+export function setItemIds() {
 
     let itemSelect = $('#itemSelect');
     itemSelect.empty();
@@ -125,7 +124,7 @@ function setItemIds() {
 
 
 // set customer details by selected id
-function setItemsDetails() {
+export function setItemsDetails() {
 
     let itemSelect = $('#itemSelect');
     let itemDetailsTextArea = $('#item-details')[0];
@@ -191,6 +190,10 @@ addCardBtn.addEventListener('click',function () {
     let itemSelect = $('#itemSelect')[0];
     let itemId = itemSelect.value;
 
+    if(!itemSelect.value){
+        return;
+    }
+
     let price = 0;
     for (let i = 0; i < itemDB.length; i++) {
         let id = itemDB[i].id;
@@ -212,6 +215,13 @@ addCardBtn.addEventListener('click',function () {
             cart[i].qty += Number(qty);
             cart[i].total = cart[i].qty*cart[i].price;
             loadCartTable();
+            Swal.fire({
+                title: 'Added to Cart!',
+                text: 'The item has been successfully added to cart.',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false
+            });
             return;
         }
     }
@@ -219,6 +229,14 @@ addCardBtn.addEventListener('click',function () {
     let cartItem = new CartModel(itemId,price,qty,total);
     cart.push(cartItem);
     loadCartTable();
+
+    Swal.fire({
+        title: 'Added to Cart!',
+        text: 'The item has been successfully added to cart.',
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false
+    });
 
 });
 
@@ -463,6 +481,7 @@ placeOrderBtn.addEventListener('click',async function () {
         confirmButtonText: 'Ok'
     })
     clean();
+    loadOrderTable();
 
 });
 

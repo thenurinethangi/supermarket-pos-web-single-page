@@ -3,7 +3,7 @@ import OrderModel from "../model/OrderModel.js"
 
 
 // load order table
-function loadOrderTable() {
+export function loadOrderTable() {
 
     let orderTbl = $('#order-table-body');
 
@@ -51,7 +51,6 @@ function loadOrderTable() {
 
 //view order deatils icon
 var selectedCustomerIdTodelete = null;
-
 $(document).on('click', '.view-order-icon', function () {
 
     let parentRow = $(this).closest('tr');

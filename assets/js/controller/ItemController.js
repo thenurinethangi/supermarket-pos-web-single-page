@@ -1,5 +1,6 @@
 import {customerDB,itemDB,orderDB} from "../db/db.js"
 import ItemModel from "../model/ItemModel.js"
+import {generateNewOrderId,setCustomersIds,setCustomersDetails,setItemIds,setItemsDetails} from "./PlaceOrderController.js"
 
 
 // load item table
@@ -46,6 +47,12 @@ function loadItemTable() {
 
     let itemSearchBar = $('#item-search-bar')[0];
     itemSearchBar.value = '';
+
+    generateNewOrderId();
+    setCustomersIds();
+    setCustomersDetails();
+    setItemIds();
+    setItemsDetails();
 }
 
 

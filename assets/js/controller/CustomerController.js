@@ -1,5 +1,6 @@
 import {customerDB,itemDB,orderDB} from "../db/db.js"
 import CustomerModel from "../model/CustomerModel.js"
+import {generateNewOrderId,setCustomersIds,setCustomersDetails,setItemIds,setItemsDetails} from "./PlaceOrderController.js"
 
 // load customer table
 function loadCustomerTable() {
@@ -48,6 +49,12 @@ function loadCustomerTable() {
 
     let customerSearchBar = $('#customer-search-bar')[0];
     customerSearchBar.value = '';
+
+    generateNewOrderId();
+    setCustomersIds();
+    setCustomersDetails();
+    setItemIds();
+    setItemsDetails();
 }
 
 
