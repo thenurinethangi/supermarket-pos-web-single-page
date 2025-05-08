@@ -57,7 +57,7 @@ function generateNewCustomerId() {
 
     let customerId = $('#customer-id');
 
-    if(customerDB.length>=0){
+    if(customerDB.length<=0){
         customerId.val('C-000001');
         return;
     }

@@ -635,7 +635,7 @@ footer {
     border: none;
     background-color: #8bc34a;
     border-radius: 5px;
-    padding: 7px 18px;
+    padding: 6px 16px;
     box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
 }
 
@@ -649,7 +649,7 @@ footer {
     border: none;
     background-color: #5DADE2;
     border-radius: 5px;
-    padding: 7px 15px;
+    padding: 6px 13px;
     box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
     transform: translateX(2px);
 }
@@ -701,12 +701,31 @@ footer {
     box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
 }
 
+#customer-edit-btn{
+
+    border: none;
+    background-color: #2196F3;
+    border-radius: 5px;
+    padding: 7px 16px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+}
+
 .cancel-btn{
 
     border: none;
     background-color: #546E7A;
     border-radius: 5px;
-    padding: 7px 15px;
+    padding: 7px 16px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+    transform: translateX(2px);
+}
+
+#customer-edit-cancel-btn{
+
+    border: none;
+    background-color: #546E7A;
+    border-radius: 5px;
+    padding: 7px 14px;
     box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
     transform: translateX(2px);
 }
@@ -732,6 +751,25 @@ footer {
     box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
 }
 
+#delete-customer-btn{
+
+    border: none;
+    background-color: #EF5350;
+    border-radius: 5px;
+    padding: 7px 15px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+    color: #FFFFFF;
+}
+
+#cancel-customer-delete{
+
+    border: none;
+    background-color: #546E7A;
+    border-radius: 5px;
+    padding: 7px 15px;
+    box-shadow: 0.5px 0.5px 15px rgba(169, 169, 169, 0.40);
+    transform: translateX(2px);
+}
 
 .section-titles{
 

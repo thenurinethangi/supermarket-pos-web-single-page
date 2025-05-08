@@ -247,8 +247,11 @@ var selectedItemIdToEdit = null;
 $(document).on('click', '.item-edit-icon', function () {
 
     let parentRow = $(this).closest('tr');
+    console.log(parentRow);
     let childrens = parentRow[0].childNodes;
+    console.log(childrens);
     let itemId = childrens[1].innerHTML;
+    console.log(itemId);
     selectedItemIdToEdit = itemId;
     let selectedItem = null;
 
@@ -257,6 +260,7 @@ $(document).on('click', '.item-edit-icon', function () {
 
         if(id===selectedItemIdToEdit){
             selectedItem = itemDB[i];
+            console.log(selectedItem);
             break;
         }
     }
