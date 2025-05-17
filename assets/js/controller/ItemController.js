@@ -802,6 +802,8 @@ itemPriceField.on('keyup',function (){
     p.className = 'warning-text item-price-warning-text';
     p.style.fontSize = '11px';
     p.style.color = 'red';
+    p.style.padding = '0px';
+    p.style.margin = '0px';
 
     if(!priceValidation){
         itemPriceField.next('.item-price-warning-text').remove();
@@ -833,6 +835,8 @@ itemQtyField.on('keyup',function (){
     p.className = 'warning-text item-qty-warning-text';
     p.style.fontSize = '11px';
     p.style.color = 'red';
+    p.style.padding = '0px';
+    p.style.margin = '0px';
 
     if(!qtyValidation){
         itemQtyField.next('.item-qty-warning-text').remove();
