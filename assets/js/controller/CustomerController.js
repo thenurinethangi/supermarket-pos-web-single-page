@@ -95,6 +95,9 @@ clearFormBtn.addEventListener('click',(event)=>{
     inputFileds[3].value = '';
     inputFileds[4].value = '';
 
+    let modal = $('#customer-modal-body');
+    modal.children('p').remove();
+    
     generateNewCustomerId();
 
 });
