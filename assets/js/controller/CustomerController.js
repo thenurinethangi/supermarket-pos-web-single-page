@@ -930,6 +930,36 @@ customerNicField.on('keyup',function (){
 
 
 
+//customer-phone-no validation
+let customerPhoneNoField = $('.customer-phone-no');
+customerPhoneNoField.on('keyup',function (){
+
+    let input = this.value;
+    input = input.trim();
+
+    const phoneRegex = /^(?:0|\+94)(7[01245678])\d{7}$/;
+    let phoneNoValidation = phoneRegex.test(input);
+
+    let p = document.createElement('p');
+    p.textContent = 'invalid phone no input for this field'
+    p.className = 'warning-text customer-phone-no-warning-text';
+    p.style.fontSize = '11px';
+    p.style.color = 'red';
+
+    if(!phoneNoValidation){
+        customerPhoneNoField.next('.customer-phone-no-warning-text').remove();
+        customerPhoneNoField.after(p);
+    }
+    else{
+        customerPhoneNoField.next('.customer-phone-no-warning-text').remove();
+    }
+
+    if(input==''){
+        customerPhoneNoField.next('.customer-phone-no-warning-text').remove();
+    }
+});
+
+
 
 
 loadCustomerTable();
