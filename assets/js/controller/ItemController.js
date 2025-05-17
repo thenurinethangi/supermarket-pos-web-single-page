@@ -769,6 +769,8 @@ itemNameField.on('keyup',function (){
     p.className = 'warning-text item-name-warning-text';
     p.style.fontSize = '11px';
     p.style.color = 'red';
+    p.style.padding = '0px';
+    p.style.margin = '0px';
 
     if(!descriptionValidation){
         itemNameField.next('.item-name-warning-text').remove();
