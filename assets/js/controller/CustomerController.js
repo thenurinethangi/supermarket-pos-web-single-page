@@ -843,7 +843,6 @@ customerNameField.on('keyup',function (){
 
     let input = this.value;
     input = input.trim();
-    console.log(input);
 
     const nameRegex = /^(([A-Z]\.)+\s)?([a-zA-Z]+)(\s[a-zA-Z]+)*$/;
     let nameValidation = nameRegex.test(input);
@@ -865,7 +864,38 @@ customerNameField.on('keyup',function (){
     if(input==''){
         customerNameField.next('.customer-name-warning-text').remove();
     }
-    //
+});
+
+
+
+//customer-address validation
+let customerAddressField = $('.customer-address');
+customerAddressField.on('keyup',function (){
+
+    let input = this.value;
+    input = input.trim();
+    console.log(input);
+
+    const addressRegex = /^[A-Za-z0-9\s,\/\-]{5,}$/;
+    let addressValidation = addressRegex.test(input);
+
+    let p = document.createElement('p');
+    p.textContent = 'invalid address input for this field'
+    p.className = 'warning-text customer-address-warning-text';
+    p.style.fontSize = '11px';
+    p.style.color = 'red';
+
+    if(!addressValidation){
+        customerAddressField.next('.customer-address-warning-text').remove();
+        customerAddressField.after(p);
+    }
+    else{
+        customerAddressField.next('.customer-address-warning-text').remove();
+    }
+
+    if(input==''){
+        customerAddressField.next('.customer-address-warning-text').remove();
+    }
 });
 
 
