@@ -93,6 +93,9 @@ clearFormBtn.addEventListener('click',(event)=>{
     inputFileds[2].value = '';
     inputFileds[3].value = '';
 
+    let modal = $('#item-modal-body');
+    modal.children('p').remove();
+
     generateNewItemId();
 
 });
