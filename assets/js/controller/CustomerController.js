@@ -836,6 +836,40 @@ customerSearchBar.addEventListener('keydown',(event)=> {
 
 
 
+//input field validations
+//customer-name validation
+let customerNameField = $('.customer-name');
+customerNameField.on('keyup',function (){
+
+    let input = this.value;
+    input = input.trim();
+    console.log(input);
+
+    const nameRegex = /^(([A-Z]\.)+\s)?([a-zA-Z]+)(\s[a-zA-Z]+)*$/;
+    let nameValidation = nameRegex.test(input);
+
+    let p = document.createElement('p');
+    p.textContent = 'invalid name input for this field'
+    p.className = 'warning-text customer-name-warning-text';
+    p.style.fontSize = '11px';
+    p.style.color = 'red';
+
+    if(!nameValidation){
+        customerNameField.next('.customer-name-warning-text').remove();
+        customerNameField.after(p);
+    }
+    else{
+        customerNameField.next('.customer-name-warning-text').remove();
+    }
+
+    if(input==''){
+        customerNameField.next('.customer-name-warning-text').remove();
+    }
+});
+
+
+
+
 
 loadCustomerTable();
 generateNewCustomerId();
