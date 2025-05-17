@@ -855,6 +855,8 @@ customerNameField.on('keyup',function (){
     p.className = 'warning-text customer-name-warning-text';
     p.style.fontSize = '11px';
     p.style.color = 'red';
+    p.style.padding = '0px';
+    p.style.margin = '0px';
 
     if(!nameValidation){
         customerNameField.next('.customer-name-warning-text').remove();
@@ -886,6 +888,8 @@ customerAddressField.on('keyup',function (){
     p.className = 'warning-text customer-address-warning-text';
     p.style.fontSize = '11px';
     p.style.color = 'red';
+    p.style.padding = '0px';
+    p.style.margin = '0px';
 
     if(!addressValidation){
         customerAddressField.next('.customer-address-warning-text').remove();
@@ -917,6 +921,8 @@ customerNicField.on('keyup',function (){
     p.className = 'warning-text customer-nic-warning-text';
     p.style.fontSize = '11px';
     p.style.color = 'red';
+    p.style.padding = '0px';
+    p.style.margin = '0px';
 
     if(!nicValidation){
         customerNicField.next('.customer-nic-warning-text').remove();
@@ -948,6 +954,8 @@ customerPhoneNoField.on('keyup',function (){
     p.className = 'warning-text customer-phone-no-warning-text';
     p.style.fontSize = '11px';
     p.style.color = 'red';
+    p.style.padding = '0px';
+    p.style.margin = '0px';
 
     if(!phoneNoValidation){
         customerPhoneNoField.next('.customer-phone-no-warning-text').remove();
