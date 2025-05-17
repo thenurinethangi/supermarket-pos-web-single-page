@@ -964,6 +964,29 @@ customerPhoneNoField.on('keyup',function (){
 
 
 
+let modalCloseBtn = $('#add-customer-modal-close');
+modalCloseBtn.on('click',()=>{
+
+    let inputFileds = $('#customer-modal-body>input');
+
+    inputFileds[1].value = '';
+    inputFileds[2].value = '';
+    inputFileds[3].value = '';
+    inputFileds[4].value = '';
+
+    let modal = $('#customer-modal-body');
+    modal.children('p').remove();
+
+    let modal = $('#update-customer-modal-body');
+    modal.children('p').remove();
+    
+    generateNewCustomerId();
+
+});
+
+
+
+
 
 loadCustomerTable();
 generateNewCustomerId();
