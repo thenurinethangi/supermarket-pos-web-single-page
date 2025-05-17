@@ -81,6 +81,10 @@ export function setCustomersDetails() {
             }
         }
     }
+    
+    if(customerSelect[0].value=='Select'){
+        customerDetailsTextArea.innerHTML = "";
+    }
 }
 
 
