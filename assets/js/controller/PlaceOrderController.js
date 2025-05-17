@@ -275,6 +275,7 @@ addCardBtn.addEventListener('click',function () {
     });
     let quantitySelect = $('#selectQty')[0];
     quantitySelect.value = 1;
+    
 });
 
 
