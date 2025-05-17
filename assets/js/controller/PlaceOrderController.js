@@ -113,6 +113,10 @@ customerSelect.addEventListener('change',function () {
         }
     }
 
+    if(id=='Select'){
+        customerDetailsTextArea.innerHTML = "";
+    }
+
 });
 
 
@@ -161,10 +165,14 @@ export function setItemsDetails() {
             }
         }
     }
+
+    if(itemSelect[0].value=='Select'){
+        itemDetailsTextArea.innerHTML = "";
+    }
 }
 
 
-//set customer details by when selecting a id
+//set item details by when selecting a id
 let itemSelect = $('#itemSelect')[0];
 itemSelect.addEventListener('change',function () {
 
@@ -187,6 +195,10 @@ itemSelect.addEventListener('change',function () {
             itemDetailsTextArea.insertAdjacentHTML("beforeend", data4);
             break;
         }
+    }
+
+    if(id=='Select'){
+        itemDetailsTextArea.innerHTML = "";
     }
 
     let qtySelect = $('#selectQty')[0];
@@ -275,7 +287,9 @@ addCardBtn.addEventListener('click',function () {
     });
     let quantitySelect = $('#selectQty')[0];
     quantitySelect.value = 1;
-    
+
+    setItemIds();
+    setItemsDetails();
 });
 
 
