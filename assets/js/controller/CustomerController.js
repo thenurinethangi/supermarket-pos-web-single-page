@@ -905,7 +905,6 @@ customerNicField.on('keyup',function (){
 
     let input = this.value;
     input = input.trim();
-    console.log(input);
 
     const nicRegex = /^(\d{9}[vVxX]|\d{12})$/;
     let nicValidation = nicRegex.test(input);
