@@ -964,6 +964,7 @@ customerPhoneNoField.on('keyup',function (){
 
 
 
+//add new customer modal close icon action
 let modalCloseBtn = $('#add-customer-modal-close');
 modalCloseBtn.on('click',()=>{
 
@@ -986,8 +987,9 @@ modalCloseBtn.on('click',()=>{
 
 
 
-let modalColse = $('.modal-close');
-modalColse.on('click',()=>{
+//edit customer icon and btn action
+let editModalColse = $('.modal-close');
+editModalColse.on('click',()=>{
 
     let modal = $('#customer-modal-body');
     modal.children('p').remove();
