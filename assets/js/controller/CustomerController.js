@@ -988,7 +988,7 @@ modalCloseBtn.on('click',()=>{
 
 
 //edit customer icon and btn action
-let editModalColse = $('.modal-close');
+let editModalColse = $('.customer-edit-modal-close');
 editModalColse.on('click',()=>{
 
     let modal = $('#customer-modal-body');
