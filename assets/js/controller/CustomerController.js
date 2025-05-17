@@ -977,8 +977,8 @@ modalCloseBtn.on('click',()=>{
     let modal = $('#customer-modal-body');
     modal.children('p').remove();
 
-    let modal = $('#update-customer-modal-body');
-    modal.children('p').remove();
+    let editModal = $('#update-customer-modal-body');
+    editModal.children('p').remove();
     
     generateNewCustomerId();
 
