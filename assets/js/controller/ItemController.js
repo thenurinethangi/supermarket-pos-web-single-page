@@ -847,6 +847,27 @@ itemQtyField.on('keyup',function (){
 
 
 
+//add new item modal close icon action
+let modalCloseBtn = $('#add-item-modal-close');
+modalCloseBtn.on('click',()=>{
+
+    let inputFileds = $('#item-modal-body>input');
+
+    inputFileds[1].value = '';
+    inputFileds[2].value = '';
+    inputFileds[3].value = '';
+    inputFileds[4].value = '';
+
+    let modal = $('#item-modal-body');
+    modal.children('p').remove();
+
+    let editModal = $('#update-item-modal-body');
+    editModal.children('p').remove();
+
+    generateNewItemId();
+
+});
+
 
 
 loadItemTable();
