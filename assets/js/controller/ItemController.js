@@ -746,8 +746,40 @@ itemSearchBar.addEventListener('keydown',(event)=> {
         loadItemTable();
     }
 
-
 });
+
+
+
+//input field validations
+//item-name validation
+let itemNameField = $('.description');
+itemNameField.on('keyup',function (){
+
+    let input = this.value;
+    input = input.trim();
+
+    const descriptionRegex = /^[A-Za-z ]+( \d+(\.\d+)?(ml|g|kg|L))?( [A-Za-z ]+)?$/i;
+    let descriptionValidation = descriptionRegex.test(input);
+
+    let p = document.createElement('p');
+    p.textContent = 'invalid description input for this field'
+    p.className = 'warning-text item-name-warning-text';
+    p.style.fontSize = '11px';
+    p.style.color = 'red';
+
+    if(!descriptionValidation){
+        itemNameField.next('.item-name-warning-text').remove();
+        itemNameField.after(p);
+    }
+    else{
+        itemNameField.next('.item-name-warning-text').remove();
+    }
+
+    if(input==''){
+        itemNameField.next('.item-name-warning-text').remove();
+    }
+});
+
 
 
 
