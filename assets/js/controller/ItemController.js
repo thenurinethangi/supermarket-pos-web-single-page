@@ -864,8 +864,6 @@ modalCloseBtn.on('click',()=>{
     let editModal = $('#update-item-modal-body');
     editModal.children('p').remove();
 
-    generateNewItemId();
-
 });
 
 
