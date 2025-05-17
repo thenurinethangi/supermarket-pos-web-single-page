@@ -865,6 +865,7 @@ customerNameField.on('keyup',function (){
     if(input==''){
         customerNameField.next('.customer-name-warning-text').remove();
     }
+    //
 });
 
 
