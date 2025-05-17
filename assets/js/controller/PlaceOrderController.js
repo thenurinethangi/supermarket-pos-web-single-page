@@ -45,6 +45,8 @@ export function setCustomersIds() {
     let customerSelect = $('#customerSelect');
     customerSelect.empty();
 
+    customerSelect.append(`<option value="Select" selected>Select</option>`);
+
     for (let i = 0; i < customerDB.length; i++) {
         let id = customerDB[i].id;
 
@@ -117,6 +119,8 @@ export function setItemIds() {
     let itemSelect = $('#itemSelect');
     itemSelect.empty();
 
+    itemSelect.append(`<option value="Select" selected>Select</option>`);
+
     for (let i = 0; i < itemDB.length; i++) {
         let id = itemDB[i].id;
 
@@ -181,6 +185,9 @@ itemSelect.addEventListener('change',function () {
         }
     }
 
+    let qtySelect = $('#selectQty')[0];
+    qtySelect.value = 1;
+
 });
 
 
@@ -193,21 +200,41 @@ addCardBtn.addEventListener('click',function () {
     let itemSelect = $('#itemSelect')[0];
     let itemId = itemSelect.value;
 
-    if(!itemSelect.value){
+    if(!itemSelect.value || itemId=='Select'){
+        Swal.fire({
+            title: 'Warning!',
+            text: 'Select an item before adding it to the cart.',
+            icon: 'warning',
+            timer: 1500,
+            showConfirmButton: false
+        });
         return;
     }
 
     let price = 0;
+    let availableQty = 0;
     for (let i = 0; i < itemDB.length; i++) {
         let id = itemDB[i].id;
 
         if(id==itemId){
             price = itemDB[i].price;
+            availableQty = itemDB[i].quntity;
+            break;
         }
     }
 
     let qtySelect = $('#selectQty')[0];
     let qty= Number(qtySelect.value);
+
+    if(availableQty<qty){
+        Swal.fire({
+            title: 'Warning!',
+            text: 'The available quantity is insufficient!',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        });
+        return;
+    }
 
     let total = Number(price)*Number(qty);
 
@@ -427,7 +454,7 @@ let placeOrderBtn = $('#placeOrderBtn')[0];
 placeOrderBtn.addEventListener('click',async function () {
 
     let customerSelect = $('#customerSelect')[0];
-    if(!customerSelect.value){
+    if(!customerSelect.value || customerSelect.value=='Select'){
         Swal.fire({
             title: 'Error!',
             text: 'Enter Customer Details First',
