@@ -870,5 +870,19 @@ modalCloseBtn.on('click',()=>{
 
 
 
+//edit customer icon and btn action
+let editModalColse = $('.item-edit-modal-close');
+editModalColse.on('click',()=>{
+
+    let modal = $('#item-modal-body');
+    modal.children('p').remove();
+
+    let editModal = $('#update-item-modal-body');
+    editModal.children('p').remove();
+
+});
+
+
+
 loadItemTable();
 generateNewItemId();
