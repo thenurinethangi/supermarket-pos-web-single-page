@@ -782,6 +782,68 @@ itemNameField.on('keyup',function (){
 
 
 
+//item-price validation
+let itemPriceField = $('.price');
+itemPriceField.on('keyup',function (){
+
+    let input = this.value;
+    input = input.trim();
+
+    const priceRegex = /^\d+\.\d{2}$/;
+    let priceValidation = priceRegex.test(input);
+
+    let p = document.createElement('p');
+    p.textContent = 'invalid price input for this field'
+    p.className = 'warning-text item-price-warning-text';
+    p.style.fontSize = '11px';
+    p.style.color = 'red';
+
+    if(!priceValidation){
+        itemPriceField.next('.item-price-warning-text').remove();
+        itemPriceField.after(p);
+    }
+    else{
+        itemPriceField.next('.item-price-warning-text').remove();
+    }
+
+    if(input==''){
+        itemPriceField.next('.item-price-warning-text').remove();
+    }
+});
+
+
+
+//item-qty validation
+let itemQtyField = $('.item-qty');
+itemQtyField.on('keyup',function (){
+
+    let input = this.value;
+    input = input.trim();
+
+    const qtyRegex = /^\d+$/;
+    let qtyValidation = qtyRegex.test(input);
+
+    let p = document.createElement('p');
+    p.textContent = 'invalid quantity input for this field'
+    p.className = 'warning-text item-qty-warning-text';
+    p.style.fontSize = '11px';
+    p.style.color = 'red';
+
+    if(!qtyValidation){
+        itemQtyField.next('.item-qty-warning-text').remove();
+        itemQtyField.after(p);
+    }
+    else{
+        itemQtyField.next('.item-qty-warning-text').remove();
+    }
+
+    if(input==''){
+        itemQtyField.next('.item-qty-warning-text').remove();
+    }
+});
+
+
+
 
 
 loadItemTable();
