@@ -874,7 +874,6 @@ customerAddressField.on('keyup',function (){
 
     let input = this.value;
     input = input.trim();
-    console.log(input);
 
     const addressRegex = /^[A-Za-z0-9\s,\/\-]{5,}$/;
     let addressValidation = addressRegex.test(input);
@@ -895,6 +894,38 @@ customerAddressField.on('keyup',function (){
 
     if(input==''){
         customerAddressField.next('.customer-address-warning-text').remove();
+    }
+});
+
+
+
+//customer-nic validation
+let customerNicField = $('.customer-nic');
+customerNicField.on('keyup',function (){
+
+    let input = this.value;
+    input = input.trim();
+    console.log(input);
+
+    const nicRegex = /^(\d{9}[vVxX]|\d{12})$/;
+    let nicValidation = nicRegex.test(input);
+
+    let p = document.createElement('p');
+    p.textContent = 'invalid nic input for this field'
+    p.className = 'warning-text customer-nic-warning-text';
+    p.style.fontSize = '11px';
+    p.style.color = 'red';
+
+    if(!nicValidation){
+        customerNicField.next('.customer-nic-warning-text').remove();
+        customerNicField.after(p);
+    }
+    else{
+        customerNicField.next('.customer-nic-warning-text').remove();
+    }
+
+    if(input==''){
+        customerNicField.next('.customer-nic-warning-text').remove();
     }
 });
 
