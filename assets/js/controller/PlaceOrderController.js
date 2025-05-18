@@ -444,6 +444,12 @@ discountTextField.addEventListener('keyup',function (event) {
         finalTotal = finalTotal.toFixed(2);
 
         finalPriceTag.innerHTML = "Rs "+finalTotal;
+
+        let cashTextField = $('#cash')[0];
+        if(cashTextField.value){
+            let balanceTag = $('#balance')[0];
+            balanceTag.value = Number(cashTextField.value)-finalTotal;
+        }
     }
 
 });
