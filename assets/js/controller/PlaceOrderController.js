@@ -258,6 +258,28 @@ addCardBtn.addEventListener('click',function () {
         let iId = cart[i].itemId;
 
         if(iId==itemId){
+            let totalItemCount = cart[i].qty+Number(qty);
+
+            let availableQty = 0;
+            for (let j = 0; j < itemDB.length; j++) {
+                let itemIdInDb = itemDB[j].id;
+
+                if(itemIdInDb==iId){
+                    availableQty = itemDB[j].quntity;
+                    break;
+                }
+            }
+
+            if(availableQty<totalItemCount){
+                Swal.fire({
+                    title: 'Warning!',
+                    text: 'The available quantity is insufficient!',
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                });
+                return;
+            }
+
             cart[i].qty += Number(qty);
             cart[i].total = cart[i].qty*cart[i].price;
             loadCartTable();
