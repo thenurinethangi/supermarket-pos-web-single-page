@@ -665,6 +665,8 @@ function clean() {
 
 
 
+
+
 generateNewOrderId();
 setTodayDate();
 setCustomersIds();
