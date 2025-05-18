@@ -270,6 +270,8 @@ addCardBtn.addEventListener('click',function () {
             });
             let qtySelect = $('#selectQty')[0];
             qtySelect.value = 1;
+            setItemIds();
+            setItemsDetails();
             return;
         }
     }
